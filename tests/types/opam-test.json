@@ -52,7 +52,7 @@
       "expected_failure_reason": null
     },
     {
-      "description": "name and version are always required",
+      "description": "name is required",
       "test_group": "base",
       "test_type": "build",
       "input": {
@@ -66,6 +66,47 @@
       "expected_output": null,
       "expected_failure": true,
       "expected_failure_reason": "Should fail to build a PURL from invalid input components"
+    },
+    {
+      "description": "version is optional (parse)",
+      "test_group": "base",
+      "test_type": "parse",
+      "input": "pkg:opam/dune",
+      "expected_output": {
+        "type": "opam",
+        "namespace": null,
+        "name": "dune",
+        "version": null,
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "version is optional (roundtrip)",
+      "test_group": "base",
+      "test_type": "roundtrip",
+      "input": "pkg:opam/dune",
+      "expected_output": "pkg:opam/dune",
+      "expected_failure": false,
+      "expected_failure_reason": null
+    },
+    {
+      "description": "version is optional (build)",
+      "test_group": "base",
+      "test_type": "build",
+      "input": {
+        "type": "opam",
+        "namespace": null,
+        "name": "dune",
+        "version": null,
+        "qualifiers": null,
+        "subpath": null
+      },
+      "expected_output": "pkg:opam/dune",
+      "expected_failure": false,
+      "expected_failure_reason": null
     }
   ]
 }
